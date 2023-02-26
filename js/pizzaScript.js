@@ -14,7 +14,7 @@ function Order() {
   };
 
   function Pizza() {
-    this.size = 2;
+    this.size = 0;
     this.sauce = [];
     this.cheese = [];
     this.toppings = [];
@@ -52,13 +52,24 @@ function main()
             OrderUP.addPizza(newPizza);
         }
         console.log(OrderUP)
+        let currentPizza = OrderUP.pizza[0];
+        console.log(currentPizza);
     });
 
 
 
     makelineElements.forEach((element) => {
         element.addEventListener("click", (event) => {
-            ingedientsList.innerText += event.target.innerText;
+            ingedientsList.innerText += "" + event.target.innerText + " ";
+
+            switch(event.target.class) {
+            case "sauces":
+                currentPizza.sauce.Push(event.target.innerText);
+                console.log(currentPizza);
+            break;
+
+            }
+
         });
       });
 }
