@@ -7,23 +7,23 @@ function main()
     const header = document.getElementById("header");
     const startElements = document.getElementsByClassName("start");
     const makelineElements = document.getElementsByClassName("makeline");
-    console.log(startElements);
-    console.log(typeof(startElements));
-    console.log(startElements.length);
 
     startOrder.addEventListener("click", () => {
         header.innerText = ("Welcome to the Mountain Top Pizza Palace Digital Makeline")
         console.log(`You ordered ${pizzaNumber.value} pizzas`)
-        Toggler(startElements[0])
-        Toggler(makelineElements[0])
+        Toggler(startElements)
+        //Why does running this twice make it work? Shouldnt they all already have the visible style?
+        Toggler(startElements)
+        Toggler(makelineElements)
     });
 }
 
 function Toggler(element) {
-
-    if (element.style.visibility === "visible") {
-      element.style.visibility = "collapse";
+    for (let i = 0; i < element.length; i++) {
+    if (element[i].style.visibility === "visible") {
+      element[i].style.visibility = "collapse";
     } else {
-      element.style.visibility = "visible";
+      element[i].style.visibility = "visible";
+    }
     }
 }

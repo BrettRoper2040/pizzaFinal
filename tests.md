@@ -24,4 +24,4 @@ Result: Test passed
 
 Testing: Toggler
 Test: After clicking submit, the submit button will hide itself, then reveal a button that says read sauce
-Result:
+Result: It took several attempts, but after making a modified version of my toggler function, I was able to make it so that I can toggle multiple elements within the html at once.
