@@ -60,7 +60,7 @@ function main()
 
     });
 
- 
+ //this thing is the coolest thing I've ever coded. Basically it goes through all of the elements and adds the same event listener, so I don't have to write it 60 billion times
     makelineElements.forEach((element) => {
         element.addEventListener("click", (event) => {
             ingedientsList.innerText += "" + event.target.innerText + " ";
@@ -70,6 +70,23 @@ function main()
                 currentPizza.sauce.push(event.target.innerText);
                 console.log(currentPizza);
             }
+            else if(event.target.classList.contains("cheeses"))
+        {
+                currentPizza.cheese.push(event.target.innerText);
+                console.log(currentPizza);
+            }
+            else if(event.target.classList.contains("toppings"))
+            {
+                    currentPizza.toppings.push(event.target.innerText);
+                    console.log(currentPizza);
+                }
+
+                else if(event.target.classList.contains("garnish"))
+                {
+                        currentPizza.finish.push(event.target.innerText);
+                        console.log(currentPizza);
+                    }
+
 
         });
       });

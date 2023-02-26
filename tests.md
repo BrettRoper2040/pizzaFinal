@@ -38,3 +38,6 @@ Testing Main
 Test: Clicking different ingridents should add it to the right spots
 Result: After a lot of changes, I was able to get this working. Test Passed
 
+Test: Expand the avalible ingredients to click on to include all classes
+Result: Test passed. No errors
+
