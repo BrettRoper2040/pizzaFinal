@@ -5,7 +5,7 @@ function Order() {
   
   Order.prototype.addPizza = function (pizza) {
     pizza.id = this.assignNum();
-    this.pizza[pizzaNumber.id] = pizza;
+    this.pizza[pizza.id] = pizza;
   };
   
   Order.prototype.assignNum = function () {
@@ -32,7 +32,8 @@ function main()
     const header = document.getElementById("header");
     let startElements = document.getElementsByClassName("start");
     let makelineElements = document.getElementsByClassName("makeline");
-    const ingedientsList = document.getElementById("ingredientsList")
+    const ingedientsList = document.getElementById("ingredientsList");
+    let currentPizza;
 
         //This should turn nodelists into arrrays according to stack overflow
         makelineElements = Array.from(makelineElements);
@@ -51,23 +52,23 @@ function main()
             let newPizza = new Pizza();
             OrderUP.addPizza(newPizza);
         }
+
         console.log(OrderUP)
-        let currentPizza = OrderUP.pizza[0];
+        currentPizza = OrderUP.pizza[1];
         console.log(currentPizza);
+    
+
     });
 
-
-
+ 
     makelineElements.forEach((element) => {
         element.addEventListener("click", (event) => {
             ingedientsList.innerText += "" + event.target.innerText + " ";
-
-            switch(event.target.class) {
-            case "sauces":
-                currentPizza.sauce.Push(event.target.innerText);
+            console.log(event.target.classList.contains("sauces"))
+            if(event.target.classList.contains("sauces"))
+        {
+                currentPizza.sauce.push(event.target.innerText);
                 console.log(currentPizza);
-            break;
-
             }
 
         });

@@ -33,3 +33,8 @@ Result: Once again this one took some time. After researching a bit I found some
 Testing Pizza
 Test: This should create an number of objects, and then print it out
 Result: I was able to reuse some code from the adressbook for this. Test passed. 
+
+Testing Main
+Test: Clicking different ingridents should add it to the right spots
+Result: After a lot of changes, I was able to get this working. Test Passed
+
