@@ -41,3 +41,5 @@ Result: After a lot of changes, I was able to get this working. Test Passed
 Test: Expand the avalible ingredients to click on to include all classes
 Result: Test passed. No errors
 
+Test: Clicking next pizza should total up the price for currentPizza, and then move onto the next pizza
+
