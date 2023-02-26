@@ -29,3 +29,7 @@ Result: It took several attempts, but after making a modified version of my togg
 Testing: Main
 Test: A list of ingredients should be created when the user clicks submit, and should add text when the user clicks a button in the makeline class
 Result: Once again this one took some time. After researching a bit I found something really helpful- I can convert the results of my document.getElementsbyClassName to an array, and then dynamically create an event listener for clicks on all of those elements. This took much longer, but is also much dryer as well.
+
+Testing Pizza
+Test: This should create an number of objects, and then print it out
+Result: I was able to reuse some code from the adressbook for this. Test passed. 

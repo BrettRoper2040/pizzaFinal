@@ -1,3 +1,28 @@
+function Order() {
+    this.pizza = {};
+    this.pizzaNumber = 0;
+  }
+  
+  Order.prototype.addPizza = function (pizza) {
+    pizza.id = this.assignNum();
+    this.pizza[pizzaNumber.id] = pizza;
+  };
+  
+  Order.prototype.assignNum = function () {
+    this.pizzaNumber += 1;
+    return this.pizzaNumber;
+  };
+
+  function Pizza() {
+    this.size = 2;
+    this.sauce = [];
+    this.cheese = [];
+    this.toppings = [];
+    this.finish = [];
+    this.price = 0;
+  }
+
+let OrderUP = new Order();
 window.addEventListener("load", main);
 
 function main()
@@ -20,6 +45,13 @@ function main()
         Toggler(startElements)
         //Why does running this twice make it work? Shouldnt they all already have the visible style?
         Toggler(makelineElements)
+
+        for(let i = 0; i < pizzaNumber.value; i++)
+        {
+            let newPizza = new Pizza();
+            OrderUP.addPizza(newPizza);
+        }
+        console.log(OrderUP)
     });
 
 
