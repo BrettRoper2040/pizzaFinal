@@ -25,3 +25,7 @@ Result: Test passed
 Testing: Toggler
 Test: After clicking submit, the submit button will hide itself, then reveal a button that says read sauce
 Result: It took several attempts, but after making a modified version of my toggler function, I was able to make it so that I can toggle multiple elements within the html at once.
+
+Testing: Main
+Test: A list of ingredients should be created when the user clicks submit, and should add text when the user clicks a button in the makeline class
+Result: Once again this one took some time. After researching a bit I found something really helpful- I can convert the results of my document.getElementsbyClassName to an array, and then dynamically create an event listener for clicks on all of those elements. This took much longer, but is also much dryer as well.
