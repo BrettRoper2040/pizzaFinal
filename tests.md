@@ -20,4 +20,8 @@ Test: Entering in the number of desired pizzas should print out the amount of pi
 Result: Test passed
 
 Test: After hitting submit, the header will change to "Welcome to the Mountain Top Pizza Palace Digital Makeline"
+Result: Test passed
+
+Testing: Toggler
+Test: After clicking submit, the submit button will hide itself, then reveal a button that says read sauce
 Result:
