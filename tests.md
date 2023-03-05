@@ -44,3 +44,7 @@ Result: Test passed. No errors
 Test: Clicking next pizza should total up the price for currentPizza, and then move onto the next pizza
 Result: Test passed. Had to change how the price was being calculated since it was doubling the price, and resetting the text was proving a bit difficult, but I got it to work.
 
+Testing: UI functionality
+Test: Clicking on the buttons should add the ingreident to the ingredients list- except for the size, which should only be replaced when each item is clicked. 
+Result: Works, but the size is added multiple times. Also initally held up by a few things being undefined, but that was just from typos.
+
