@@ -15,6 +15,7 @@ function Order() {
 
   Order.prototype.finish = function () {
     let string;
+    let totalprice = 0.0;
     string = `You ordered ${this.pizzaNumber} pizzas.`
     for(let i = 1; i <= this.pizzaNumber; i++)
     {
@@ -32,6 +33,7 @@ function Order() {
         else if(key === "cost")
         {
           string += `$${pizza.Price()}`
+          totalprice += pizza.Price();
         }
         else
         {
@@ -41,6 +43,7 @@ function Order() {
           }
         }
       });
+    string += `\n Your total is ${totalprice} dollars.\n Thank you for dining with us today.`
     return string;
   }
     }
@@ -80,8 +83,9 @@ function main()
     const pizzaNumber = document.getElementById("pizzaNumber");
     const header = document.getElementById("header");
     let startElements = document.getElementsByClassName("start");
-    let makelineElements = document.getElementsByClassName("makeline");
-    const ingedientsList = document.getElementById("ingredientsList");
+    let makelineElements = document.getElementsByClassName("makelineInteractable");
+    let makelineElementsNonUser = document.getElementsByClassName("makelineNonInteractable");
+    let endElements = document.getElementsByClassName("end")
     const finishPizza = document.getElementById("finish");
     const priceDisplay = document.getElementById("price");
     const pizzaHead = document.getElementById("dad");
@@ -90,12 +94,15 @@ function main()
         //This should turn nodelists into arrrays according to stack overflow
         makelineElements = Array.from(makelineElements);
         startElements = Array.from(startElements);
+        makelineElementsNonUser = Array.from(makelineElementsNonUser);
+        endElements = Array.from(endElements);
     startOrder.addEventListener("click", () => {
         header.innerText = ("Welcome to the Mountain Top Pizza Palace Digital Makeline")
         Toggler(startElements)
         Toggler(startElements)
         //Why does running this twice make it work? Shouldnt they all already have the visible style?
         Toggler(makelineElements)
+        Toggler(makelineElementsNonUser)
         for(let i = 0; i < pizzaNumber.value; i++)
         {
             let newPizza = new Pizza();
@@ -166,6 +173,9 @@ function main()
           pizzaHead.innerText = (`Working on pizza ${x} of ${OrderUP.pizzaNumber}`)
             } 
             else{
+              Toggler(makelineElements)
+              Toggler(makelineElementsNonUser)
+              Toggler(endElements)
               output.innerText = OrderUP.finish();
             }  
       });

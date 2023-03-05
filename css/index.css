@@ -2,7 +2,11 @@
     visibility: visible;
 }
 
-.makeline {
+.makelineInteractable {
+    visibility: collapse;
+}
+
+.makelineNonInteractable {
     visibility: collapse;
 }
 
