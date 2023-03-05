@@ -10,7 +10,7 @@
 
 ###Setup/Installation: Clone this repository to wherever you wish, then open index.html in your preferred web browser
 
-###Known Bugs: "ID is added randomly at the end of the list of items on the pizza."
+###Known Bugs: "ID is added randomly at the end of the list of items on the pizza.". Items are going invisible instead of collasping properly. 
 
 ###License: Copyright 2023 Brett Roper
 
