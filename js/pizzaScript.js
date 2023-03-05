@@ -54,6 +54,7 @@ function main()
     const ingedientsList = document.getElementById("ingredientsList");
     const finishPizza = document.getElementById("finish");
     const priceDisplay = document.getElementById("price");
+    const pizzaHead = document.getElementById("dad")
     let currentPizza;
         //This should turn nodelists into arrrays according to stack overflow
         makelineElements = Array.from(makelineElements);
@@ -70,11 +71,13 @@ function main()
             let newPizza = new Pizza();
             OrderUP.addPizza(newPizza);
         }
+        pizzaHead.innerText = (`Working on pizza ${x} of ${OrderUP.pizzaNumber}`)
         currentPizza = OrderUP.pizza[x];    
     });
  //this thing is the coolest thing I've ever coded. Basically it goes through all of the elements and adds the same event listener, so I don't have to write it 60 billion times
 
  let list;
+
 
     makelineElements.forEach((element) => {
         element.addEventListener("click", (event) => {
@@ -99,11 +102,6 @@ function main()
                     currentPizza.toppings.push(event.target.innerText);
                 }
 
-                else if(event.target.classList.contains("garnish"))
-                {
-                  //list = document.getElementById("saucesList");
-                        //currentPizza.finish.push(event.target.innerText);
-                    }
                     else if(event.target.classList.contains("size"))
                     {
                       list = document.getElementById("sizeText");
@@ -136,6 +134,7 @@ function main()
           Emptier(document.getElementById("cheesesList"));
           Emptier(document.getElementById("toppingsList"));
           Emptier(document.getElementById("sizeText"));
+          pizzaHead.innerText = (`Working on pizza ${x} of ${OrderUP.pizzaNumber}`)
             }   
       });
 }
