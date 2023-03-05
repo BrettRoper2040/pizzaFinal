@@ -13,18 +13,48 @@ function Order() {
     return this.pizzaNumber;
   };
 
+  Order.prototype.finish = function () {
+    let string;
+    string = `You ordered ${this.pizzaNumber} pizzas.`
+    for(let i = 1; i <= this.pizzaNumber; i++)
+    {
+      let pizza = this.pizza[i]
+      string += `\n Pizza ${i} \n \n`
+
+      const pizzaKeys = Object.keys(pizza);
+      pizzaKeys.forEach(function(key) {
+        string += `\n ${key}: \n`
+        console.log(pizza[key])
+        if(key === "size")
+        {
+          string += `\n ${pizza[key]}`
+        }
+        else if(key === "cost")
+        {
+          string += `$${pizza.Price()}`
+        }
+        else
+        {
+          for(let i = 0; i < pizza[key].length; i++)
+          {
+            string += `\n ${pizza[key][i]}`
+          }
+        }
+      });
+    return string;
+  }
+    }
+  
+
   function Pizza() {
     this.size = 0;
     this.sauce = [];
     this.cheese = [];
     this.toppings = [];
-    this.finish = [];
     this.cost = 0;
   }
 
   Pizza.prototype.Price = function () {
-    this.cost = this.size;
-
     if(this.sauce.length > 1)
     {
         this.cost += (.5 * (this.sauce.length -1))
@@ -54,14 +84,14 @@ function main()
     const ingedientsList = document.getElementById("ingredientsList");
     const finishPizza = document.getElementById("finish");
     const priceDisplay = document.getElementById("price");
-    const pizzaHead = document.getElementById("dad")
+    const pizzaHead = document.getElementById("dad");
+    const output = document.getElementById("output");
     let currentPizza;
         //This should turn nodelists into arrrays according to stack overflow
         makelineElements = Array.from(makelineElements);
         startElements = Array.from(startElements);
     startOrder.addEventListener("click", () => {
         header.innerText = ("Welcome to the Mountain Top Pizza Palace Digital Makeline")
-        console.log(`You ordered ${pizzaNumber.value} pizzas`)
         Toggler(startElements)
         Toggler(startElements)
         //Why does running this twice make it work? Shouldnt they all already have the visible style?
@@ -108,7 +138,8 @@ function main()
                       if (list.hasChildNodes()) {
                         list.removeChild(list.children[0]);
                       }
-                            currentPizza.size = (parseInt(event.target.id));
+                            currentPizza.size = (event.target.innerText);
+                            currentPizza.cost = (parseInt(event.target.id));
                         }
                         let li = document.createElement("li");
           li.innerText = event.target.innerText;
@@ -125,17 +156,18 @@ function main()
             priceDisplay.innerText = parseFloat(priceDisplay.innerText) + (currentPizza.Price());
           }
             x = x+1
-
             if(x <= OrderUP.pizzaNumber)
             {
-              console.log(OrderUP)
             currentPizza = OrderUP.pizza[x]
           Emptier(document.getElementById("saucesList"));
           Emptier(document.getElementById("cheesesList"));
           Emptier(document.getElementById("toppingsList"));
           Emptier(document.getElementById("sizeText"));
           pizzaHead.innerText = (`Working on pizza ${x} of ${OrderUP.pizzaNumber}`)
-            }   
+            } 
+            else{
+              output.innerText = OrderUP.finish();
+            }  
       });
 }
 function Toggler(element) {
@@ -154,3 +186,4 @@ function Emptier(list) {
   }
   return list;
 }
+

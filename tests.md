@@ -55,3 +55,7 @@ Result: Test passed. Initially had some problems, but it was due to an improper 
 Testing: Main
 Test: The header should display what pizza is being worked on currently. 
 Result: Test passed
+
+Testing: Final
+Test: An output should list to the user what they ordered. 
+Result: Test passed. Ended up using keys in order to make the program more efficent, thought that was a lot more complex and time consuming. Good practice though. 
