@@ -42,4 +42,5 @@ Test: Expand the avalible ingredients to click on to include all classes
 Result: Test passed. No errors
 
 Test: Clicking next pizza should total up the price for currentPizza, and then move onto the next pizza
+Result: Test passed. Had to change how the price was being calculated since it was doubling the price, and resetting the text was proving a bit difficult, but I got it to work.
 

@@ -14,7 +14,7 @@ function Order() {
   };
 
   function Pizza() {
-    this.size = 5;
+    this.size = 0;
     this.sauce = [];
     this.cheese = [];
     this.toppings = [];
@@ -73,36 +73,49 @@ function main()
         currentPizza = OrderUP.pizza[x];    
     });
  //this thing is the coolest thing I've ever coded. Basically it goes through all of the elements and adds the same event listener, so I don't have to write it 60 billion times
+
+ let list;
+
     makelineElements.forEach((element) => {
         element.addEventListener("click", (event) => {
-            ingedientsList.innerText += "" + event.target.innerText + " ";
+           
+
+
+
+            //ingedientsList.innerText += "" + event.target.innerText + " ";
             if(event.target.classList.contains("sauces"))
         {
+          list = document.getElementById("saucesList");
                 currentPizza.sauce.push(event.target.innerText);
             }
             else if(event.target.classList.contains("cheeses"))
         {
+          list = document.getElementById("cheesesList");
                 currentPizza.cheese.push(event.target.innerText);
             }
             else if(event.target.classList.contains("toppings"))
             {
+              list = document.getElementById("toppingsList");
                     currentPizza.toppings.push(event.target.innerText);
                 }
 
                 else if(event.target.classList.contains("garnish"))
                 {
-                        currentPizza.finish.push(event.target.innerText);
+                  //list = document.getElementById("saucesList");
+                        //currentPizza.finish.push(event.target.innerText);
                     }
                     else if(event.target.classList.contains("size"))
                     {
+                      list = document.getElementById("sizeText");
+                      list.removeChild(list.firstElementChild);
                             currentPizza.size = (parseInt(event.target.id));
                         }
+                        let li = document.createElement("li");
+          li.innerText = event.target.innerText;
+          list.appendChild(li);
         });
       });
       finishPizza.addEventListener("click", () => {
-        console.log(currentPizza.Price());
-        console.log(parseFloat(priceDisplay.innerText));
-        console.log((parseFloat(priceDisplay.innerText) != NaN));
           if(isNaN(parseFloat(priceDisplay.innerText)))
           {
             priceDisplay.innerText = (currentPizza.Price());
@@ -112,11 +125,15 @@ function main()
             priceDisplay.innerText = parseFloat(priceDisplay.innerText) + (currentPizza.Price());
           }
             x = x+1
-            ingedientsList.innerText = "";
+
             console.log(OrderUP)
             if(x < OrderUP.pizzaNumber)
             {
             currentPizza = OrderUP[x]
+            Emptier(document.getElementById("saucesList"));
+            Emptier(document.getElementById("cheesesList"));
+            Emptier(document.getElementById("toppingsList"));
+            Emptier(document.getElementById("sizeText"));
             }   
       });
 }
@@ -128,4 +145,11 @@ function Toggler(element) {
       element[i].style.visibility = "visible";
     }
     }
+}
+
+function Emptier(list) {
+  while (list.hasChildNodes()) {
+    list.removeChild(list.firstChild);
+  }
+  return list;
 }
