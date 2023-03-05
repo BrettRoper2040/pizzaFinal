@@ -5,3 +5,7 @@
 .makeline {
     visibility: collapse;
 }
+
+.end {
+    visibility: collapse;
+}

@@ -107,7 +107,9 @@ function main()
                     else if(event.target.classList.contains("size"))
                     {
                       list = document.getElementById("sizeText");
-                      list.removeChild(list.firstElementChild);
+                      if (list.hasChildNodes()) {
+                        list.removeChild(list.children[0]);
+                      }
                             currentPizza.size = (parseInt(event.target.id));
                         }
                         let li = document.createElement("li");
@@ -126,14 +128,14 @@ function main()
           }
             x = x+1
 
-            console.log(OrderUP)
-            if(x < OrderUP.pizzaNumber)
+            if(x <= OrderUP.pizzaNumber)
             {
-            currentPizza = OrderUP[x]
-            Emptier(document.getElementById("saucesList"));
-            Emptier(document.getElementById("cheesesList"));
-            Emptier(document.getElementById("toppingsList"));
-            Emptier(document.getElementById("sizeText"));
+              console.log(OrderUP)
+            currentPizza = OrderUP.pizza[x]
+          Emptier(document.getElementById("saucesList"));
+          Emptier(document.getElementById("cheesesList"));
+          Emptier(document.getElementById("toppingsList"));
+          Emptier(document.getElementById("sizeText"));
             }   
       });
 }

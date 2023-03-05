@@ -48,3 +48,10 @@ Testing: UI functionality
 Test: Clicking on the buttons should add the ingreident to the ingredients list- except for the size, which should only be replaced when each item is clicked. 
 Result: Works, but the size is added multiple times. Also initally held up by a few things being undefined, but that was just from typos.
 
+Testing: Emptier
+Test: Clicking the finish pizza button should reset all of the lists of ingreidents
+Result: Test passed. Initially had some problems, but it was due to an improper resetting of currentPizza, not anything to do with the new code itself.
+
+Testing: Main
+Test: The header should display what pizza is being worked on currently. 
+
